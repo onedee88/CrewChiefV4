@@ -5,9 +5,14 @@ namespace CrewChiefV4.iRacing
 {
     public class SessionData
     {
+        const string sessionInfoYamlPath = "SessionInfo:Sessions:SessionNum:{{{0}}}{1}:";
+
         public SessionData()
         {
             this.SessionId = -1;
+            this.IsOval = false;
+            this.IsRallyCross = false;
+            this.HeatRacing = false;
         }
 
         public Track Track { get; set; }
@@ -25,7 +30,8 @@ namespace CrewChiefV4.iRacing
         public int NumJokerLaps { get; set; }
         public bool IsOval { get; set; }
         public bool IsRallyCross { get; set; }
-        const string sessionInfoYamlPath = "SessionInfo:Sessions:SessionNum:{{{0}}}{1}:";
+        public bool HeatRacing { get; set; }
+                        
         public void Update(string sessionString, int sessionNumber)
         {
             this.Track = Track.FromSessionInfo(sessionString);            
@@ -33,7 +39,6 @@ namespace CrewChiefV4.iRacing
             this.SessionId = Parser.ParseInt(YamlParser.Parse(sessionString, "WeekendInfo:SessionID:"));            
             this.IsTeamRacing = Parser.ParseInt(YamlParser.Parse(sessionString, "WeekendInfo:TeamRacing:")) == 1;
             this.NumCarClasses = Parser.ParseInt(YamlParser.Parse(sessionString, "WeekendInfo:NumCarClasses:"));
-
             this.EventType = YamlParser.Parse(sessionString, "WeekendInfo:EventType:");
             this.SessionType = YamlParser.Parse(sessionString, string.Format(sessionInfoYamlPath, sessionNumber, "SessionType"));
             this.RaceLaps = YamlParser.Parse(sessionString, string.Format(sessionInfoYamlPath, sessionNumber, "SessionLaps"));
@@ -41,9 +46,9 @@ namespace CrewChiefV4.iRacing
             this.RaceTime = Parser.ParseSec(SessionTimeString);            
             this.IncidentLimitString = YamlParser.Parse(sessionString, "WeekendInfo:WeekendOptions:IncidentLimit:");
             this.NumJokerLaps = Parser.ParseInt(YamlParser.Parse(sessionString, "WeekendInfo:WeekendOptions:IncidentLimit:"));
-
+            this.HeatRacing = Parser.ParseInt(YamlParser.Parse(sessionString, "WeekendInfo:HeatRacing:")) == 1;
             this.IsOval = this.Track.Category.ToLower().Contains("oval");
-            this.IsRallyCross = this.Track.Category.ToLower().Contains("DirtRoad");
+            this.IsRallyCross = this.Track.Category.ToLower().Contains("dirtroad");
 
             if(IsLimitedIncidents)
             {
