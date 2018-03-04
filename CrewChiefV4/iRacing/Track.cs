@@ -7,7 +7,7 @@ namespace CrewChiefV4.iRacing
     {
         public Track()
         {
-            IsOval = false;
+
         }
 
         public int Id { get; set; }
@@ -15,7 +15,6 @@ namespace CrewChiefV4.iRacing
         public string CodeName { get; set; }
         public double Length { get; set; }
         public bool NightMode { get; set; }
-        public bool IsOval { get; set; }
         public string Category { get; set; }
         public static Track FromSessionInfo(string sessionString)
         {
@@ -26,7 +25,7 @@ namespace CrewChiefV4.iRacing
             track.Length = Parser.ParseTrackLength(YamlParser.Parse(sessionString, "WeekendInfo:TrackLength:"));            
             track.NightMode = YamlParser.Parse(sessionString, "WeekendInfo:NightMode:") == "1";
             track.Category = YamlParser.Parse(sessionString, "WeekendInfo:Category:");
-            track.IsOval = track.Category.ToLower().Contains("oval");
+
 
             return track;
         }

@@ -83,5 +83,9 @@ namespace iRSDKSharp
                 return Bytes * Count;
             }
         }
+        public override string ToString()
+        {
+            return "/// <summary>\n" + "/// " + desc + "\n" + "/// <summary>\n" + type.ToString() + " " + name;
+        }
     }
 }

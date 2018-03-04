@@ -137,9 +137,14 @@
             "key": "SPACE_BAR"
         }
         ,
-		{
+        {
             "action": "Get Out Of Car",
-			"key": "ESC"
+            "key": "ESC"
+        }
+        ,
+		{
+            "action": "Tear Off",
+			"key": "KEY_T"
 		}
 		]
 	}],
@@ -632,16 +637,31 @@
             }
         ]
     },
+    {
+        "name": "Get Out Of Car",
+        "description": "Presses ESC key for 2 sec.",
+        "voiceTriggers": [ "get out" ],
+        "commandSets": [
+            {
+                "description": "iRacing only",
+                "gameDefinition": "IRACING",
+                "actionSequence": [ "Get Out Of Car" ],
+                "keyPressTime": 2000,
+                "waitBetweenEachCommand": 200
+            }
+        ]
+    }
+    ,
 	{
-		"name": "Get Out Of Car",
-		"description": "Presses ESC key for 2 sec.",
-		"voiceTriggers": [ "get out" ],
+		"name": "Tear Off",
+		"description": "Rips off tear off",
+		"voiceTriggers": [ "tear off", "clear wisor" ],
 		"commandSets": [
 		{
 			"description": "iRacing only",
 			"gameDefinition": "IRACING",
-			"actionSequence": [ "Get Out Of Car" ],
-			"keyPressTime": 2000,
+			"actionSequence": [ "Tear Off" ],
+			"keyPressTime": 100,
 			"waitBetweenEachCommand": 200
 		}]
 	}]

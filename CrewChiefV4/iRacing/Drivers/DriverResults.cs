@@ -13,6 +13,7 @@ namespace CrewChiefV4.iRacing
             this.IsEmpty = true;
             this.LastTime = -1;
             this.QualifyingPosition = -1;
+            this.OutReason = "";
 
         }
         public bool IsEmpty { get; set; }
@@ -24,6 +25,7 @@ namespace CrewChiefV4.iRacing
         public int Incidents { get; set; }
         public string OutReason { get; set; }
         public int LapsComplete { get; set; }
+        public int JokerLapsComplete { get; set; }
         public ReasonOutId OutReasonId { get; set; }
         public bool IsOut { get { return this.OutReasonId != ReasonOutId.IDS_REASON_OUT_NOT_OUT; } }
 
@@ -43,6 +45,7 @@ namespace CrewChiefV4.iRacing
             this.OutReasonId = (ReasonOutId)Parser.ParseInt(ParseRaceResultsYaml(sessionInfo, sessionnumber, position, "ReasonOutId"));
             this.OutReason = ParseRaceResultsYaml(sessionInfo, sessionnumber, position, "ReasonOutStr");
             this.LapsComplete = Parser.ParseInt(ParseRaceResultsYaml(sessionInfo, sessionnumber, position, "LapsComplete"));
+            this.JokerLapsComplete = Parser.ParseInt(ParseRaceResultsYaml(sessionInfo, sessionnumber, position, "JokerLapsComplete"));
         }
     }
 }

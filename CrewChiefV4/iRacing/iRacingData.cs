@@ -133,6 +133,11 @@ namespace CrewChiefV4.iRacing
             Yaw = (System.Single)sdk.GetData("Yaw");
             Roll = (System.Single)sdk.GetData("Roll");
             Voltage = (System.Single)sdk.GetData("Voltage");
+
+            dcBrakeBias = (System.Single)sdk.GetData("dcBrakeBias");
+            dcTractionControl = (System.Single)sdk.GetData("dcTractionControl");
+            dcABS = (System.Single)sdk.GetData("dcABS");
+            dcThrottleShape = (System.Single)sdk.GetData("dcThrottleShape");
         }
         public iRacingData()
         {
@@ -681,5 +686,24 @@ namespace CrewChiefV4.iRacing
         /// </summary>
         public System.Single Voltage;
 
+        /// <summary>
+        /// In car brake bias adjustment
+        /// <summary>
+        public System.Single dcBrakeBias;
+        
+        /// <summary>
+        /// In car traction control adjustment
+        /// <summary>
+        public System.Single dcTractionControl;
+        
+        /// <summary>
+        /// In car abs adjustment
+        /// <summary>        
+        public System.Single dcABS;
+        
+        /// <summary>
+        /// In car throttle shape adjustment
+        /// <summary>
+        public System.Single dcThrottleShape;        
     }
 }
