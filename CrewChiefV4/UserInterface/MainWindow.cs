@@ -1142,6 +1142,12 @@ namespace CrewChiefV4
                         CrewChief.getDamageReport();
                         nextPollWait = 1000;
                     }
+                    else if (controllerConfiguration.hasOutstandingClick(ControllerConfiguration.GET_FRIEND_DELTA))
+                    {
+                        Console.WriteLine("Getting delta to your friend");
+                        CrewChief.getFriendDelta();
+                        nextPollWait = 1000;
+                    }
                     else if (controllerConfiguration.hasOutstandingClick(ControllerConfiguration.GET_CAR_STATUS))
                     {
                         Console.WriteLine("Getting car status");

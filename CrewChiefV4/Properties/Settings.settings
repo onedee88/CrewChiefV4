@@ -650,6 +650,15 @@
     <Setting Name="GET_DAMAGE_REPORT_device_type" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="GET_FRIEND_DELTA_button_index" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="GET_FRIEND_DELTA_device_guid" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="GET_FRIEND_DELTA_device_type" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
     <Setting Name="disable_alternative_voice_commands" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

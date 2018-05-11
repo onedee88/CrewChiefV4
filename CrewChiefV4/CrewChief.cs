@@ -524,6 +524,10 @@ namespace CrewChiefV4
         }
         //
 
+        public static void getFriendDelta()
+        {
+            //ToDo
+        }
 
         public void reportCurrentTime()
         {

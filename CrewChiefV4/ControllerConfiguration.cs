@@ -39,7 +39,9 @@ namespace CrewChiefV4
         public static String GET_STATUS = Configuration.getUIString("get_status");
         public static String GET_SESSION_STATUS = Configuration.getUIString("get_session_status");
         public static String GET_DAMAGE_REPORT = Configuration.getUIString("get_damage_report");
-                
+
+        public static String GET_FRIEND_DELTA = Configuration.getUIString("get_friend_delta");
+
         public static String TOGGLE_PACE_NOTES_RECORDING = Configuration.getUIString("toggle_pace_notes_recording");
         public static String TOGGLE_PACE_NOTES_PLAYBACK = Configuration.getUIString("toggle_pace_notes_playback");
 
@@ -90,6 +92,7 @@ namespace CrewChiefV4
             addButtonAssignment(READ_CORNER_NAMES_FOR_LAP);
             addButtonAssignment(GET_CAR_STATUS);
             addButtonAssignment(GET_DAMAGE_REPORT);
+            addButtonAssignment(GET_FRIEND_DELTA);
             addButtonAssignment(GET_SESSION_STATUS);
             addButtonAssignment(GET_STATUS);
             addButtonAssignment(TOGGLE_PACE_NOTES_PLAYBACK);
@@ -131,6 +134,7 @@ namespace CrewChiefV4
             pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[GET_STATUS]]);
             pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[GET_SESSION_STATUS]]);
             pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[GET_DAMAGE_REPORT]]);
+            pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[GET_FRIEND_DELTA]]);
             pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[GET_CAR_STATUS]]);
             pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[TOGGLE_PACE_NOTES_PLAYBACK]]);
             pollForButtonClicks(buttonAssignments[buttonAssignmentIndexes[TOGGLE_PACE_NOTES_RECORDING]]);
@@ -284,6 +288,10 @@ namespace CrewChiefV4
                 {
                     actionId = "GET_DAMAGE_REPORT";
                 }
+                else if (buttonAssignment.action == GET_FRIEND_DELTA)
+                {
+                    actionId = "GET_FRIEND_DELTA";
+                }
                 else if (buttonAssignment.action == GET_SESSION_STATUS)
                 {
                     actionId = "GET_SESSION_STATUS";
@@ -420,6 +428,13 @@ namespace CrewChiefV4
             if (getDamageReportButtonIndex != -1 && getDamageReportDeviceGuid.Length > 0)
             {
                 loadAssignment(parent, GET_DAMAGE_REPORT, getDamageReportButtonIndex, getDamageReportDeviceGuid);
+            }
+
+            int getFriendDeltaButtonIndex = UserSettings.GetUserSettings().getInt("GET_FRIEND_DELTA_button_index");
+            String getFriendDeltaDeviceGuid = UserSettings.GetUserSettings().getString("GET_FRIEND_DELTA_device_guid");
+            if (getFriendDeltaButtonIndex != -1 && getFriendDeltaDeviceGuid.Length > 0)
+            {
+                loadAssignment(parent, GET_FRIEND_DELTA, getFriendDeltaButtonIndex, getFriendDeltaDeviceGuid);
             }
 
             int getCarStatusButtonIndex = UserSettings.GetUserSettings().getInt("GET_CAR_STATUS_button_index");

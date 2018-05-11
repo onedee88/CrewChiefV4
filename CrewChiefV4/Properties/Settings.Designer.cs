@@ -2617,6 +2617,42 @@ namespace CrewChiefV4.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int GET_FRIEND_DELTA_button_index {
+            get {
+                return ((int)(this["GET_FRIEND_DELTA_button_index"]));
+            }
+            set {
+                this["GET_FRIEND_DELTA_button_index"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GET_FRIEND_DELTA_device_guid {
+            get {
+                return ((string)(this["GET_FRIEND_DELTA_device_guid"]));
+            }
+            set {
+                this["GET_FRIEND_DELTA_device_guid"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GET_FRIEND_DELTA_device_type {
+            get {
+                return ((string)(this["GET_FRIEND_DELTA_device_type"]));
+            }
+            set {
+                this["GET_FRIEND_DELTA_device_type"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool disable_alternative_voice_commands {
             get {
